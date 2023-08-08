@@ -32,36 +32,13 @@ public class PaginationHandle {
         driver.findElement(By.xpath("//span[normalize-space()='User Manage']")).click();//user manage
         driver.findElement(By.xpath("//a[normalize-space()='User Detail']")).click();
         Thread.sleep(3000);
-        //clicking on pagination
-//        driver.findElement(By.xpath("//button[@aria-label='Next Page']")).click();
-//        Thread.sleep(2000);
-//        System.out.println(driver.findElement(By.xpath("//span[normalize-space()='11-20 of 1000']")).getText());
 
         WebElement firstPageBtn = driver.findElement(By.id("pagination-first-page"));
         WebElement previousPageBtn = driver.findElement(By.id("pagination-previous-page"));
         WebElement nextPageBtn = driver.findElement(By.id("pagination-next-page"));
         WebElement lastPageBtn = driver.findElement(By.id("pagination-last-page"));
-        // Thread.sleep(500);
-        // Assuming there are 10 pages in total, you can iterate through all pages like this:
-//        int totalPages = 10;
-//
-//        for (int pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-//            // Load data and perform actions on the current page
-//            // loadPageData(driver, pageNumber);
-//
-//            // If not the last page, go to the next page
-//
-//            if (pageNumber < totalPages) {
-//                nextPageBtn.click();
-//                Thread.sleep(500);
-//            }
-//        }
-//
-//        String pageCount = driver.findElement(By.cssSelector("body > div:nth-child(2) > div:nth-child(1) > section:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > nav:nth-child(1) > span:nth-child(3)")).getText();
-//        System.out.println(pageCount);
-        // Assuming there are 10 pages in total, you can iterate through all pages like this:
-        int totalPages = 3;
 
+        int totalPages = 10;
 
         List<WebElement> nameArray = null;
         for (int pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
@@ -76,7 +53,7 @@ public class PaginationHandle {
                 if (!nameElement.getText().equals(nameColumnElements.get(0).getText()) && !mobileColumnElements.get(index).getText().equals(mobileColumnElements.get(0).getText())) {
                     System.out.println(nameElement.getText() + " : " + mobileColumnElements.get(index).getText());
                 }
-                    index++;
+                index++;
             }
 
 
