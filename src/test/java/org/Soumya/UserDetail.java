@@ -30,42 +30,42 @@ public class UserDetail {
 
         driver.findElement(By.xpath("//span[normalize-space()='User Manage']")).click();//user manage
         driver.findElement(By.xpath("//a[normalize-space()='User Detail']")).click();//user detail
-        // System.out.println(driver.findElement(By.xpath("//p[@class='page-title']")).getText());//verify present in user detail
-        List<WebElement> userID = driver.findElements(By.cssSelector("[data-column-id$='2']"));
-        List<String> userList = new ArrayList<>();
-        // int count = userID.size();
-        //System.out.println(count);
 
-        for (WebElement user : userID) {
-            userList.add(user.getText());
-
-        }
-        //System.out.println(currentList);
-        String playerId = userList.get(4);
-        System.out.println(playerId);//grabing player id form array
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//input[@id='input-field-data-search']")).sendKeys(playerId);
-        driver.findElement(By.xpath("//button[@class='btn btn-search icon-only']")).click();//searching the playerId
-        Thread.sleep(5000);
-        String confirm = driver.findElement(By.xpath("//div[@id='cell-2-520000']")).getText();
-        Assert.assertEquals(confirm, playerId); //verify if the searched id is same
-        Thread.sleep(3000);
-        //userID SEARCH
-
-        driver.findElement(By.xpath("//a[@class='d-flex justify-content-between align-items-center']")).click();//view user detail
-        Thread.sleep(2000);
-        driver.navigate().back();//come back
-
-        List<WebElement> mobileNo = driver.findElements(By.cssSelector("[data-column-id$='4']"));//grabing mobile numbers
-        List<String> mobiList = new ArrayList<>();
-        for (WebElement mobileNumber : mobileNo) {
-            mobiList.add(mobileNumber.getText());
-        }
-        String finalmobileNo = mobiList.get(6);
-        System.out.println(finalmobileNo);
-        driver.findElement(By.xpath("//input[@id='input-field-data-search']")).sendKeys(finalmobileNo);
-        driver.findElement(By.xpath("//button[@class='btn btn-search icon-only']")).click();//search mobile numbers
-        Thread.sleep(2000);
+//        List<WebElement> userID = driver.findElements(By.cssSelector("[data-column-id$='2']"));
+        List<WebElement> userID = driver.findElements(By.xpath("//div[@data-column-id='2']"));
+//        List<String> userList = new ArrayList<>();
+//
+//
+//        for (WebElement user : userID) {
+//            userList.add(user.getText());
+//
+//        }
+//        //System.out.println(currentList);
+//        String playerId = userList.get(4);
+//        System.out.println(playerId);//grabing player id form array
+//        Thread.sleep(2000);
+//        driver.findElement(By.xpath("//input[@id='input-field-data-search']")).sendKeys(playerId);
+//        driver.findElement(By.xpath("//button[@class='btn btn-search icon-only']")).click();//searching the playerId
+//        Thread.sleep(5000);
+//        String confirm = driver.findElement(By.xpath("//div[@id='cell-2-520000']")).getText();
+//        Assert.assertEquals(confirm, playerId); //verify if the searched id is same
+//        Thread.sleep(3000);
+//        //userID SEARCH
+//
+//        driver.findElement(By.xpath("//a[@class='d-flex justify-content-between align-items-center']")).click();//view user detail
+//        Thread.sleep(2000);
+//        driver.navigate().back();//come back
+//
+//        List<WebElement> mobileNo = driver.findElements(By.cssSelector("[data-column-id$='4']"));//grabing mobile numbers
+//        List<String> mobiList = new ArrayList<>();
+//        for (WebElement mobileNumber : mobileNo) {
+//            mobiList.add(mobileNumber.getText());
+//        }
+//        String finalmobileNo = mobiList.get(6);
+//        System.out.println(finalmobileNo);
+//        driver.findElement(By.xpath("//input[@id='input-field-data-search']")).sendKeys(finalmobileNo);
+//        driver.findElement(By.xpath("//button[@class='btn btn-search icon-only']")).click();//search mobile numbers
+//        Thread.sleep(2000);
         //Mobile number search
 
         driver.findElement(By.cssSelector("button[class='btn btn-ui export-btn btn-primary ms-10 text-only']")).click();//reseting page
@@ -78,12 +78,30 @@ public class UserDetail {
 
         System.out.println(driver.findElement(By.xpath("//div[@class='filter dropdown']")).getText());//verifying active user list
 
-        WebElement paginationSet = driver.findElement(By.xpath("//select[@aria-label='Rows per page:']"));//pagination
-        Thread.sleep(2000);
-        Select paginationDropdown = new Select(paginationSet);
-        paginationDropdown.selectByIndex(2);//selecting another value form dropdown
-        Thread.sleep(2000);
+        List<WebElement> statusActive = driver.findElements(By.cssSelector("[data-column-id$='6']"));
 
+        List<String> statusActiveImag = new ArrayList<>();
+
+//        int index = 0;
+//        for (WebElement status : statusActive) {
+//            statusActiveImag.add(status.getText());
+////            System.out.println(userID.get(index).getText());
+//            System.out.println(userID.get(index).getText());
+////            if (!userID.get(index).getText().equals(userID.get(0).getText())) {
+////                System.out.println(status.findElement(By.xpath("//div[@id='cell-6-" + userID.get(index).getText() + "']/div/button/img")).getAttribute("src"));
+////            }
+//            index++;
+//        }
+        for (int i= 0; i <= statusActive.size(); i++) {
+            System.out.println(userID.get(i).getText());
+        }
+
+
+//        WebElement paginationSet = driver.findElement(By.xpath("//select[@aria-label='Rows per page:']"));//pagination
+//        Thread.sleep(2000);
+//        Select paginationDropdown = new Select(paginationSet);
+//        paginationDropdown.selectByIndex(2);//selecting another value form dropdown
+//        Thread.sleep(2000);
 
 
     }
